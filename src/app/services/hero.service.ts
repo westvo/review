@@ -1,10 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export const HEROES: any[] = [
-  { id: 12, name: 'Dr. Nice' },
+  { id: 12, name: 'Dr. Nice', description: 'Hey ' },
   { id: 13, name: 'Bombasto' },
   { id: 14, name: 'Celeritas' },
   { id: 15, name: 'Magneta' },
@@ -20,10 +21,14 @@ export const HEROES: any[] = [
 })
 export class HeroService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getHeroes(): Observable<any[]> {
     return of(HEROES);
+  }
+
+  getCategories() {
+    return this.http.get<any[]>('https://gce.onedev.top/api/v1/keeps')
   }
 
   getHero(id: number | string) {

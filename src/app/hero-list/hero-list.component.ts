@@ -3,13 +3,14 @@ import { switchMap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
-import { HeroService } from './hero.service';
+import { HeroService } from '../services/hero.service';
 import { CommonModule } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-hero-list',
@@ -22,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
+    HttpClientModule,
   ],
   templateUrl: './hero-list.component.html',
   styleUrl: './hero-list.component.scss',
