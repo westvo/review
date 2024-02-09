@@ -11,6 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateComponent } from '../create/create.component';
 
 @Component({
   selector: 'app-hero-list',
@@ -24,48 +27,61 @@ import { HttpClientModule } from '@angular/common/http';
     MatDividerModule,
     MatIconModule,
     HttpClientModule,
+    MatListModule,
   ],
   templateUrl: './hero-list.component.html',
   styleUrl: './hero-list.component.scss',
 })
 export class HeroListComponent implements OnInit {
   options: any[] = [
-    'Algorithms',
-    'Data Structures',
-    'HTML',
-    'CSS',
-    'Javascript',
-    'Nodejs',
-    'Angular',
-    'MySQL',
-    'GIT',
-    'SOLID',
-    'OOP',
-    'Design Patterns',
-    'SDLC',
-    'Agile/Scrum',
-    'TDD',
-    'DDD',
-    'Software Testing',
-    'System Design',
-    'Architectures',
-    'Microservices',
-    'UML',
-    'Design Thinkings',
-
+    // 'Algorithms',
+    // 'Data Structures',
+    // 'HTML',
+    // 'CSS',
+    // 'Javascript',
+    // 'Nodejs',
+    // 'Angular',
+    // 'MySQL',
+    // 'GIT',
+    // 'SOLID',
+    // 'OOP',
+    // 'Design Patterns',
+    // 'SDLC',
+    // 'Agile/Scrum',
+    // 'TDD',
+    // 'DDD',
+    // 'Software Testing',
+    // 'System Design',
+    // 'Architectures',
+    // 'Microservices',
+    // 'UML',
+    // 'Design Thinkings',
   ];
   panelOpenState = false;
   heroes$!: Observable<any[]>;
   selectedId = 0;
 
-  constructor(private service: HeroService, private route: ActivatedRoute) {}
+  constructor(private service: HeroService, private route: ActivatedRoute,
+    private dialog: MatDialog) {}
 
   ngOnInit() {
-    this.heroes$ = this.route.paramMap.pipe(
-      switchMap((params) => {
-        this.selectedId = parseInt(params.get('id')!, 10);
-        return this.service.getHeroes();
-      })
-    );
+    this.getCategories();
   }
+
+  getCategories() {
+    this.service.getCategories().subscribe((res: any) => {
+      this.options = res.data;
+    });
+  }
+
+  openDialog(item: any): void {
+    const dialogRef = this.dialog.open(CreateComponent, {
+      data: item,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getCategories();
+    });
+  }
+
 }

@@ -1,38 +1,27 @@
 <div style="display:flex; flex-wrap: wrap; align-items: center;margin-bottom: 2rem;">
-
-  <button style="margin: 0.5rem;" mat-raised-button [routerLink]="['/heroes', option]" *ngFor="let option of options">{{option }}</button>
-  <button mat-raised-button color="primary" style="margin-right: 1rem;"  (click)="openDialog()">
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
-    Add
-  </button>
+  <a style="margin: 0.5rem;" mat-raised-button [routerLink]="['/heroes', option.id]" (dblClick)="dblClick(option.id)"
+     *ngFor="let option of options" [style.color]="option.id===id ? 'blue': ''">
+    <mat-icon *ngIf="option.id===id">check</mat-icon>
+    {{option.name }}
+  </a>
 </div>
-
-
-<div *ngIf="hero$ | async as hero">
-  <h3>{{ hero.name }}</h3>
-  <p>Id: {{ hero.id }}</p>
-  <label for="hero-name">Hero name: </label>
-  <input type="text" id="hero-name" [(ngModel)]="hero.name" placeholder="name"/>
-  <button type="button" (click)="gotoHeroes(hero)">Back</button>
-</div>
-
 
 <div style="display:flex">
   <div></div>
   <span style=" flex: 1 1 auto;"></span>
-  <a mat-raised-button color="primary" style="margin-right: 1rem;">
+  <a mat-raised-button color="primary" style="margin-right: 1rem;" (click)="openDialogKeep()">
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
     Add
   </a>
 </div>
 
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let hero of heroes$ | async; index as i" [class.selected]="hero.id === selectedId">
+  <mat-expansion-panel *ngFor="let keep of keeps; index as i" [class.selected]="keep.id === id">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{ i + 1 }}) {{ hero.name }}
+        {{ i + 1 }}) {{ keep.name }}
       </mat-panel-title>
     </mat-expansion-panel-header>
-    {{ hero.description }}
+    <div [innerHTML]="keep.description"></div>
   </mat-expansion-panel>
 </mat-accordion>

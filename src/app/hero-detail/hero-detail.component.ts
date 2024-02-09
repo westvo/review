@@ -45,35 +45,37 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class HeroDetailComponent implements OnInit {
   options: any[] = [
-    'Algorithms',
-    'Data Structures',
-    'HTML',
-    'CSS',
-    'Javascript',
-    'Nodejs',
-    'Angular',
-    'MySQL',
-    'GIT',
-    'SOLID',
-    'OOP',
-    'Design Patterns',
-    'SDLC',
-    'Agile/Scrum',
-    'TDD',
-    'DDD',
-    'Software Testing',
-    'System Design',
-    'Architectures',
-    'Microservices',
-    'UML',
-    'Design Thinkings',
+    // 'Algorithms',
+    // 'Data Structures',
+    // 'HTML',
+    // 'CSS',
+    // 'Javascript',
+    // 'Nodejs',
+    // 'Angular',
+    // 'MySQL',
+    // 'GIT',
+    // 'SOLID',
+    // 'OOP',
+    // 'Design Patterns',
+    // 'SDLC',
+    // 'Agile/Scrum',
+    // 'TDD',
+    // 'DDD',
+    // 'Software Testing',
+    // 'System Design',
+    // 'Architectures',
+    // 'Microservices',
+    // 'UML',
+    // 'Design Thinkings',
   ];
 
   hero$!: Observable<any>;
 
   panelOpenState = false;
-  heroes$!: Observable<any[]>;
-  selectedId = 0;
+
+  keeps: any[] = [];
+
+  id = '';
 
   animal: string = '';
   name: string = '';
@@ -86,12 +88,26 @@ export class HeroDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.heroes$ = this.route.paramMap.pipe(
-      switchMap((params) => {
-        this.selectedId = parseInt(params.get('id')!, 10);
-        return this.service.getHeroes();
-      })
-    );
+    this.getCategories();
+    this.route.params.subscribe((routeParams: any) => {
+      this.id = routeParams?.id;
+      this.getKeeps();
+    });
+
+  }
+
+  getCategories() {
+    this.service.getCategories().subscribe((res: any) => {
+      this.options = res.data;
+    });
+  }
+
+  getKeeps() {
+    if (this.id) {
+      this.service.getKeeps(this.id).subscribe((res: any) => {
+        this.keeps = res.data;
+      });
+    }
   }
 
   gotoHeroes(hero: any) {
@@ -101,12 +117,25 @@ export class HeroDetailComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CreateComponent, {
-      data: { name: this.name, animal: this.animal },
+      data: { name: this.name, description: this.animal },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      this.animal = result;
+      this.getCategories();
     });
+  }
+
+  openDialogKeep(): void {
+    const dialogRef = this.dialog.open(CreateComponent, {
+      data: { parent_id: this.id },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getKeeps();
+    });
+  }
+
+  dblClick(id: string) {
+    alert(id);
   }
 }

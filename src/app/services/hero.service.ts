@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, pluck } from 'rxjs/operators';
 
 export const HEROES: any[] = [
   { id: 12, name: 'Dr. Nice', description: 'Hey ' },
@@ -21,14 +21,26 @@ export const HEROES: any[] = [
 })
 export class HeroService {
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   getHeroes(): Observable<any[]> {
     return of(HEROES);
   }
 
   getCategories() {
-    return this.http.get<any[]>('https://gce.onedev.top/api/v1/keeps')
+    return this.http.get<any[]>(`http://localhost:3000/api/v1/keeps`)
+  }
+
+  getKeeps(id: string) {
+    return this.http.get<any[]>(`http://localhost:3000/api/v1/keeps?parent_id=${id}`)
+  }
+
+  create(data: any) {
+    return this.http.post<any[]>('http://localhost:3000/api/v1/keeps', data)
+  }
+
+  update(data: any) {
+    return this.http.put<any[]>(`http://localhost:3000/api/v1/keeps/${data.id}`, data)
   }
 
   getHero(id: number | string) {
