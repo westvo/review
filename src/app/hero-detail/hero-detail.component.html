@@ -1,6 +1,6 @@
 <div style="display:flex; flex-wrap: wrap; align-items: center;margin-bottom: 2rem;">
   <a style="margin: 0.5rem;" mat-raised-button [routerLink]="['/heroes', option.id]" (dblClick)="dblClick(option.id)"
-     *ngFor="let option of options" [style.color]="option.id===id ? 'blue': ''">
+    *ngFor="let option of options" [style.color]="option.id===id ? 'blue': ''">
     <mat-icon *ngIf="option.id===id">check</mat-icon>
     {{option.name }}
   </a>
@@ -21,10 +21,10 @@
       <mat-panel-title>
         {{ i + 1 }}) {{ keep.name }}
       </mat-panel-title>
-      <div class="float-right">  <button mat-button  (click)="openDialogKeep(keep)"> Edit</button></div>
-  
+      <div class="float-right"> <button mat-button (click)="openDialogKeep(keep)" [style.color]="'blue'"> Edit</button></div>
+
     </mat-expansion-panel-header>
- 
+
     <div [innerHTML]="keep.description"></div>
   </mat-expansion-panel>
 </mat-accordion>
