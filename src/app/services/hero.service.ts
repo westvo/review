@@ -28,11 +28,11 @@ export class HeroService {
   }
 
   getCategories() {
-    return this.http.get<any[]>(`http://localhost:3000/api/v1/keeps`)
+    return this.http.get<any[]>(`http://localhost:3000/api/v1/keeps?limit=0`)
   }
 
   getKeeps(id: string) {
-    return this.http.get<any[]>(`http://localhost:3000/api/v1/keeps?parent_id=${id}`)
+    return this.http.get<any[]>(`http://localhost:3000/api/v1/keeps?limit=0&parent_id=${id}`)
   }
 
   create(data: any) {

@@ -125,9 +125,9 @@ export class HeroDetailComponent implements OnInit {
     });
   }
 
-  openDialogKeep(): void {
+  openDialogKeep(data: any|undefined): void {
     const dialogRef = this.dialog.open(CreateComponent, {
-      data: { parent_id: this.id },
+      data: data || { parent_id: this.id },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
