@@ -43,6 +43,10 @@ export class HeroService {
     return this.http.put<any[]>(`http://localhost:3000/api/v1/keeps/${data.id}`, data)
   }
 
+  delete(id: string) {
+    return this.http.delete<any[]>(`http://localhost:3000/api/v1/keeps/${id}`);
+  }
+
   getHero(id: number | string) {
     return this.getHeroes().pipe(
       // (+) before `id` turns the string into a number

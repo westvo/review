@@ -9,7 +9,7 @@
 <div style="display:flex">
   <div></div>
   <span style=" flex: 1 1 auto;"></span>
-  <a mat-raised-button color="primary" style="margin-right: 1rem;" (click)="openDialogKeep({})">
+  <a mat-raised-button color="primary" style="margin-right: 1rem;" (click)="openDialogKeep({ parent_id: id })">
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
     Add
   </a>
@@ -21,9 +21,10 @@
       <mat-panel-title>
         {{ i + 1 }}) {{ keep.name }}
       </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div class="float-right">  <button mat-button  (click)="openDialogKeep(keep)"> Edit</button></div>
+      <div class="float-right">  <button mat-button  (click)="openDialogKeep(keep)"> Edit</button></div>
   
+    </mat-expansion-panel-header>
+ 
     <div [innerHTML]="keep.description"></div>
   </mat-expansion-panel>
 </mat-accordion>

@@ -83,4 +83,8 @@ export class HeroListComponent implements OnInit {
     });
   }
 
+  delete(item: any) {
+    this.service.delete(item.id).subscribe(() => this.getCategories());
+  }
+
 }
