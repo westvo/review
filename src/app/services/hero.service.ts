@@ -20,6 +20,7 @@ export const HEROES: any[] = [
   providedIn: 'root',
 })
 export class HeroService {
+  URL = 'https://gce.tstmart.com/api/v1/keeps';
 
   constructor(public http: HttpClient) { }
 
@@ -28,23 +29,23 @@ export class HeroService {
   }
 
   getCategories() {
-    return this.http.get<any[]>(`http://localhost:3000/api/v1/keeps?limit=0`)
+    return this.http.get<any[]>(`${this.URL}?limit=0`)
   }
 
   getKeeps(id: string) {
-    return this.http.get<any[]>(`http://localhost:3000/api/v1/keeps?limit=0&parent_id=${id}`)
+    return this.http.get<any[]>(`${this.URL}?limit=0&parent_id=${id}`)
   }
 
   create(data: any) {
-    return this.http.post<any[]>('http://localhost:3000/api/v1/keeps', data)
+    return this.http.post<any[]>(`${this.URL}`, data)
   }
 
   update(data: any) {
-    return this.http.put<any[]>(`http://localhost:3000/api/v1/keeps/${data.id}`, data)
+    return this.http.put<any[]>(`${this.URL}/${data.id}`, data)
   }
 
   delete(id: string) {
-    return this.http.delete<any[]>(`http://localhost:3000/api/v1/keeps/${id}`);
+    return this.http.delete<any[]>(`${this.URL}/${id}`);
   }
 
   getHero(id: number | string) {
