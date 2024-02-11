@@ -19,15 +19,15 @@
   <mat-accordion>
     <mat-expansion-panel *ngFor="let keep of keeps; index as i" [class.selected]="keep.id === id">
       <mat-expansion-panel-header>
-        <mat-panel-title class="font-bold">
-          {{ i + 1 }}) {{ keep.name }}
+        <mat-panel-title>
+          <span class="font-bold"> {{ i + 1 }}) {{ keep.name }}</span>
         </mat-panel-title>
-     
+
       </mat-expansion-panel-header>
 
-      <div [innerHTML]="keep.description"></div>  
-       <div class="float-right"> <button mat-button (click)="openDialogKeep(keep)" [style.color]="'blue'">
-            Edit</button></div>
+      <div [innerHTML]="keep.description"></div>
+      <div class="float-right"> <button mat-button (click)="openDialogKeep(keep)" [style.color]="'blue'">
+          Edit</button></div>
 
     </mat-expansion-panel>
   </mat-accordion>
