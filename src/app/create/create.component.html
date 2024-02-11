@@ -10,7 +10,7 @@
 
   <angular-editor [(ngModel)]="data.description"></angular-editor>
 </mat-dialog-content>
-<mat-dialog-actions>
+<mat-dialog-actions align="end">
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button color="primary" cdkFocusInitial (click)="create()"> {{ !!data.id ? "Update" : "Create" }}</button>
+  <button mat-raised-button color="primary" cdkFocusInitial (click)="create()"> {{ !!data.id ? "Update" : "Create" }}</button>
 </mat-dialog-actions>
