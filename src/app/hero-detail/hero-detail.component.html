@@ -1,34 +1,71 @@
 <div class="">
-  <div style="display:flex; flex-wrap: wrap; align-items: center;margin-bottom: 2rem;">
-    <a style="margin: 0.5rem;" mat-raised-button [routerLink]="['/heroes', option.id]" (dblClick)="dblClick(option.id)"
-      *ngFor="let option of options" [style.color]="option.id===id ? 'blue': ''">
-      <mat-icon *ngIf="option.id===id">check</mat-icon>
-      {{option.name }}
+  <div
+    style="
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 2rem;
+    "
+  >
+    <a
+      style="margin: 0.5rem"
+      mat-raised-button
+      [routerLink]="['/heroes', option.id]"
+      (dblClick)="dblClick(option.id)"
+      *ngFor="let option of options"
+      [style.color]="option.id === id ? 'blue' : ''"
+    >
+      <mat-icon *ngIf="option.id === id">check</mat-icon>
+      {{ option.name }}
     </a>
   </div>
 
-  <div style="display:flex">
+  <div style="display: flex">
     <div></div>
-    <span style=" flex: 1 1 auto;"></span>
-    <a mat-raised-button color="primary" style="margin-right: 1rem;" (click)="openDialogKeep({ parent_id: id })">
-      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
+    <span style="flex: 1 1 auto"></span>
+    <a
+      mat-raised-button
+      color="primary"
+      style="margin-right: 1rem"
+      (click)="openDialogKeep({ parent_id: id })"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="add"
+      ></mat-icon>
       Add
     </a>
   </div>
 
-  <mat-accordion>
-    <mat-expansion-panel *ngFor="let keep of keeps; index as i" [class.selected]="keep.id === id">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <span class="font-bold" style="text-black"> {{ i + 1 }}) {{ keep.name }}</span>
+  <mat-accordion style="background-color: rgba(0, 0, 0, 0.595); color: #fff">
+    <mat-expansion-panel
+      *ngFor="let keep of keeps; index as i"
+      [class.selected]="keep.id === id"
+      style="background-color: rgba(0, 0, 0, 0.69); color: #fff"
+    >
+      <mat-expansion-panel-header style="color: #fff">
+        <mat-panel-title style="color: #fff">
+          <span style="font-weight: bold; font-size: 16px; color: #fff">
+            {{ i + 1 }}) {{ keep.name }}</span
+          >
         </mat-panel-title>
-
       </mat-expansion-panel-header>
 
-      <div [innerHTML]="keep.description"></div>
-      <div class="float-right"> <button mat-button (click)="openDialogKeep(keep)" [style.color]="'blue'">
-          Edit</button></div>
-
+      <div
+        class="p-2"
+        style="font-size: 15px; color: #fff"
+        [innerHTML]="keep.description"
+      ></div>
+      <div class="float-right" style="float: right">
+        <button
+          mat-raised-button
+          (click)="openDialogKeep(keep)"
+          [style.color]="'blue'"
+        >
+          Edit
+        </button>
+      </div>
     </mat-expansion-panel>
   </mat-accordion>
 </div>
