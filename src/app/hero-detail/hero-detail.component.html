@@ -13,7 +13,7 @@
       [routerLink]="['/heroes', option.id]"
       (dblClick)="dblClick(option.id)"
       *ngFor="let option of options"
-      [style.color]="option.id === id ? 'blue' : '#fff'"
+      [style.color]="option.id === id ? '#647cff' : '#fff'"
     >
       <mat-icon *ngIf="option.id === id">check</mat-icon>
       {{ option.name }}
