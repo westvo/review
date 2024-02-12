@@ -8,7 +8,7 @@
     "
   >
     <a
-      style="margin: 0.5rem"
+      style="margin: 0.5rem; background-color: rgba(0, 0, 0, 0.69); color: #fff"
       mat-raised-button
       [routerLink]="['/heroes', option.id]"
       (dblClick)="dblClick(option.id)"
@@ -42,7 +42,7 @@
     <mat-expansion-panel
       *ngFor="let keep of keeps; index as i"
       [class.selected]="keep.id === id"
-      style="background:none; color: #fff"
+      style="background: none; color: #fff"
     >
       <mat-expansion-panel-header style="color: #fff">
         <mat-panel-title style="color: #fff">
@@ -53,7 +53,7 @@
       </mat-expansion-panel-header>
 
       <div
-        style="font-size: 15px; color: #fff;padding: 16px 0;"
+        style="font-size: 15px; color: #fff; padding: 16px 0"
         [innerHTML]="keep.description"
       ></div>
       <div class="float-right" style="float: right">
