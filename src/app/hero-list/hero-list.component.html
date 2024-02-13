@@ -15,10 +15,19 @@
         >
         <span style="flex: 1 1 auto"></span>
         <div>
-          <button (click)="openDialog(option)" mat-icon-button>
+          <button
+            *ngIf="passwordMatch"
+            (click)="openDialog(option)"
+            mat-icon-button
+          >
             <mat-icon>edit_note</mat-icon>
           </button>
-          <button (click)="delete(option)" mat-icon-button class="text-orange-800">
+          <button
+            *ngIf="passwordMatch"
+            (click)="delete(option)"
+            mat-icon-button
+            class="text-orange-800"
+          >
             <mat-icon>delete</mat-icon>
           </button>
         </div>
@@ -27,6 +36,7 @@
   </mat-list>
 
   <a
+    *ngIf="passwordMatch"
     (click)="openDialog({})"
     mat-stroked-button
     color="primary"

@@ -87,6 +87,10 @@ export class HeroDetailComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
+  get passwordMatch () {
+    return !!localStorage.getItem('password_match');
+  }
+
   ngOnInit() {
     this.getCategories();
     this.route.params.subscribe((routeParams: any) => {

@@ -1,0 +1,107 @@
+[debug] [2024-02-13T01:59:19.637Z] ----------------------------------------------------------------------
+[debug] [2024-02-13T01:59:19.638Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2024-02-13T01:59:19.638Z] CLI Version:   12.9.1
+[debug] [2024-02-13T01:59:19.638Z] Platform:      darwin
+[debug] [2024-02-13T01:59:19.639Z] Node Version:  v18.15.0
+[debug] [2024-02-13T01:59:19.642Z] Time:          Tue Feb 13 2024 08:59:19 GMT+0700 (Indochina Time)
+[debug] [2024-02-13T01:59:19.642Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-13T01:59:19.675Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-13T01:59:19.675Z] > authorizing via signed-in user (vodangbinhtay@gmail.com)
+[debug] [2024-02-13T01:59:19.676Z] [iam] checking project westvo-review for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-02-13T01:59:19.676Z] > refreshing access token with scopes: []
+[debug] [2024-02-13T01:59:19.677Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-02-13T01:59:19.677Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-13T01:59:19.941Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-02-13T01:59:19.941Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-13T01:59:19.958Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/westvo-review:testIamPermissions [none]
+[debug] [2024-02-13T01:59:19.958Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/westvo-review:testIamPermissions x-goog-quota-user=projects/westvo-review
+[debug] [2024-02-13T01:59:19.958Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/westvo-review:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-02-13T01:59:21.991Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/westvo-review:testIamPermissions 200
+[debug] [2024-02-13T01:59:21.991Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/westvo-review:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-02-13T01:59:21.992Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/westvo-review [none]
+[debug] [2024-02-13T01:59:22.673Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/westvo-review 200
+[debug] [2024-02-13T01:59:22.673Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/westvo-review {"projectId":"westvo-review","projectNumber":"969653965729","displayName":"westvo-review","name":"projects/westvo-review","resources":{"hostingSite":"westvo-review"},"state":"ACTIVE","etag":"1_a0bf0133-e6a2-4a2b-a351-cbad4adf818a"}
+[info] 
+[info] === Deploying to 'westvo-review'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2024-02-13T01:59:22.681Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/versions [none]
+[debug] [2024-02-13T01:59:22.681Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2024-02-13T01:59:23.899Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/versions 200
+[debug] [2024-02-13T01:59:23.900Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/versions {"name":"projects/969653965729/sites/westvo-review/versions/04e01c27ab219965","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[westvo-review]: beginning deploy... 
+[info] i  hosting[westvo-review]: found 7 files in dist/keep/browser 
+[debug] [2024-02-13T02:00:37.791Z] [hosting] uploading with 200 concurrency
+[debug] [2024-02-13T02:00:37.870Z] [hosting] hash cache [ZGlzdC9rZWVwL2Jyb3dzZXI] stored for 7 files
+[debug] [2024-02-13T02:00:37.871Z] [hosting][hash queue][FINAL] {"max":58,"min":11,"avg":19.285714285714285,"active":0,"complete":7,"success":7,"errored":0,"retried":0,"total":7,"elapsed":66}
+[debug] [2024-02-13T02:00:37.872Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/969653965729/sites/westvo-review/versions/04e01c27ab219965:populateFiles [none]
+[debug] [2024-02-13T02:00:37.872Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/969653965729/sites/westvo-review/versions/04e01c27ab219965:populateFiles {"files":{"/polyfills-RX4V3J3S.js":"9f70fdd2c745e7e929b092052c5047fff6ea616e040832a34f459931ebdf7957","/index.html":"ae215c1c56d2998cfb746320094014ef6155a5788e01f41489a59209028b122f","/favicon.ico":"006bf6beeef1e9c7926f2185701668183959d6c02959b86a521d13fea16fed31","/crisis-center/index.html":"4c9ef525d94c9979fa7e252ffc18e346678552f71efe28f75766a1ffb7075052","/styles-Y6JBA25D.css":"c74aa3def75d02523ab482dc1703a9adc71816759600737cb56e4673b500f2cb","/heroes/index.html":"4a18f8f55798e0fa4d1b45c5bd532cbce945bdf213f0977ce0b7421a17455f8b","/main-5VRDHKQV.js":"669e3826868a90d5d0c065870763aa50506e3a9d97b5bf4e897f7e651d1fe27f"}}
+[debug] [2024-02-13T02:00:38.875Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/969653965729/sites/westvo-review/versions/04e01c27ab219965:populateFiles 200
+[debug] [2024-02-13T02:00:38.876Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/969653965729/sites/westvo-review/versions/04e01c27ab219965:populateFiles {"uploadRequiredHashes":["4a18f8f55798e0fa4d1b45c5bd532cbce945bdf213f0977ce0b7421a17455f8b","669e3826868a90d5d0c065870763aa50506e3a9d97b5bf4e897f7e651d1fe27f","ae215c1c56d2998cfb746320094014ef6155a5788e01f41489a59209028b122f","4c9ef525d94c9979fa7e252ffc18e346678552f71efe28f75766a1ffb7075052"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files"}
+[debug] [2024-02-13T02:00:38.879Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/4a18f8f55798e0fa4d1b45c5bd532cbce945bdf213f0977ce0b7421a17455f8b [none]
+[debug] [2024-02-13T02:00:38.879Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/4a18f8f55798e0fa4d1b45c5bd532cbce945bdf213f0977ce0b7421a17455f8b [stream]
+[debug] [2024-02-13T02:00:38.884Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/669e3826868a90d5d0c065870763aa50506e3a9d97b5bf4e897f7e651d1fe27f [none]
+[debug] [2024-02-13T02:00:38.884Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/669e3826868a90d5d0c065870763aa50506e3a9d97b5bf4e897f7e651d1fe27f [stream]
+[debug] [2024-02-13T02:00:38.885Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/ae215c1c56d2998cfb746320094014ef6155a5788e01f41489a59209028b122f [none]
+[debug] [2024-02-13T02:00:38.885Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/ae215c1c56d2998cfb746320094014ef6155a5788e01f41489a59209028b122f [stream]
+[debug] [2024-02-13T02:00:38.888Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/4c9ef525d94c9979fa7e252ffc18e346678552f71efe28f75766a1ffb7075052 [none]
+[debug] [2024-02-13T02:00:38.888Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/4c9ef525d94c9979fa7e252ffc18e346678552f71efe28f75766a1ffb7075052 [stream]
+[debug] [2024-02-13T02:00:38.892Z] [hosting][populate queue][FINAL] {"max":1013,"min":1013,"avg":1013,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1026}
+[debug] [2024-02-13T02:00:38.892Z] [hosting] uploads queued: 4
+[debug] [2024-02-13T02:00:40.081Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/4c9ef525d94c9979fa7e252ffc18e346678552f71efe28f75766a1ffb7075052 200
+[debug] [2024-02-13T02:00:40.084Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/4c9ef525d94c9979fa7e252ffc18e346678552f71efe28f75766a1ffb7075052 [stream]
+[debug] [2024-02-13T02:00:40.096Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/4a18f8f55798e0fa4d1b45c5bd532cbce945bdf213f0977ce0b7421a17455f8b 200
+[debug] [2024-02-13T02:00:40.096Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/4a18f8f55798e0fa4d1b45c5bd532cbce945bdf213f0977ce0b7421a17455f8b [stream]
+[debug] [2024-02-13T02:00:40.121Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/ae215c1c56d2998cfb746320094014ef6155a5788e01f41489a59209028b122f 200
+[debug] [2024-02-13T02:00:40.122Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/ae215c1c56d2998cfb746320094014ef6155a5788e01f41489a59209028b122f [stream]
+[debug] [2024-02-13T02:00:40.560Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/669e3826868a90d5d0c065870763aa50506e3a9d97b5bf4e897f7e651d1fe27f 200
+[debug] [2024-02-13T02:00:40.562Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/westvo-review/versions/04e01c27ab219965/files/669e3826868a90d5d0c065870763aa50506e3a9d97b5bf4e897f7e651d1fe27f [stream]
+[debug] [2024-02-13T02:00:40.564Z] [hosting][upload queue][FINAL] {"max":1685,"min":1206,"avg":1338.5,"active":0,"complete":4,"success":4,"errored":0,"retried":0,"total":4,"elapsed":1687}
+[info] ✔  hosting[westvo-review]: file upload complete 
+[debug] [2024-02-13T02:00:40.567Z] [hosting] deploy completed after 2795ms
+[debug] [2024-02-13T02:00:40.568Z] [
+  {
+    "config": {
+      "public": "dist/keep/browser",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "westvo-review"
+    },
+    "version": "projects/969653965729/sites/westvo-review/versions/04e01c27ab219965"
+  }
+]
+[info] i  hosting[westvo-review]: finalizing version... 
+[debug] [2024-02-13T02:00:40.575Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/versions/04e01c27ab219965 updateMask=status%2Cconfig
+[debug] [2024-02-13T02:00:40.575Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/versions/04e01c27ab219965 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2024-02-13T02:00:41.263Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/versions/04e01c27ab219965 200
+[debug] [2024-02-13T02:00:41.264Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/versions/04e01c27ab219965 {"name":"projects/969653965729/sites/westvo-review/versions/04e01c27ab219965","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2024-02-13T01:59:23.623097Z","createUser":{"email":"vodangbinhtay@gmail.com"},"finalizeTime":"2024-02-13T02:00:41.228549Z","finalizeUser":{"email":"vodangbinhtay@gmail.com"}}
+[debug] [2024-02-13T02:00:41.264Z] [hosting] finalized version for westvo-review:[object Object]
+[info] ✔  hosting[westvo-review]: version finalized 
+[info] i  hosting[westvo-review]: releasing new version... 
+[debug] [2024-02-13T02:00:41.277Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/channels/live/releases versionName=projects%2F969653965729%2Fsites%2Fwestvo-review%2Fversions%2F04e01c27ab219965
+[debug] [2024-02-13T02:00:41.277Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/channels/live/releases {}
+[debug] [2024-02-13T02:00:41.884Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/channels/live/releases 200
+[debug] [2024-02-13T02:00:41.885Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/westvo-review/channels/live/releases {"name":"projects/969653965729/sites/westvo-review/channels/live/releases/1707789641312000","version":{"name":"projects/969653965729/sites/westvo-review/versions/04e01c27ab219965","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2024-02-13T01:59:23.623097Z","createUser":{"email":"vodangbinhtay@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJHTCi6zXkiffP2TNDTWAwonjrKq2E5U29acjv_YFcZjTE"},"finalizeTime":"2024-02-13T02:00:41.228549Z","finalizeUser":{"email":"vodangbinhtay@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJHTCi6zXkiffP2TNDTWAwonjrKq2E5U29acjv_YFcZjTE"}},"type":"DEPLOY","releaseTime":"2024-02-13T02:00:41.312Z","releaseUser":{"email":"vodangbinhtay@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJHTCi6zXkiffP2TNDTWAwonjrKq2E5U29acjv_YFcZjTE"}}
+[debug] [2024-02-13T02:00:41.885Z] [hosting] release: {"name":"projects/969653965729/sites/westvo-review/channels/live/releases/1707789641312000","version":{"name":"projects/969653965729/sites/westvo-review/versions/04e01c27ab219965","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2024-02-13T01:59:23.623097Z","createUser":{"email":"vodangbinhtay@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJHTCi6zXkiffP2TNDTWAwonjrKq2E5U29acjv_YFcZjTE"},"finalizeTime":"2024-02-13T02:00:41.228549Z","finalizeUser":{"email":"vodangbinhtay@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJHTCi6zXkiffP2TNDTWAwonjrKq2E5U29acjv_YFcZjTE"}},"type":"DEPLOY","releaseTime":"2024-02-13T02:00:41.312Z","releaseUser":{"email":"vodangbinhtay@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocJHTCi6zXkiffP2TNDTWAwonjrKq2E5U29acjv_YFcZjTE"}}
+[info] ✔  hosting[westvo-review]: release complete 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/westvo-review/overview
+[info] Hosting URL: https://westvo-review.web.app
+[debug] [2024-02-13T02:02:06.995Z] Error: Timed out.
+    at Timeout._onTimeout (/usr/local/lib/node_modules/firebase-tools/lib/utils.js:254:49)
+    at listOnTimeout (node:internal/timers:569:17)
+    at process.processTimers (node:internal/timers:512:7)
+[error] 
+[error] Error: An unexpected error has occurred.

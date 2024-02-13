@@ -87,4 +87,7 @@ export class HeroListComponent implements OnInit {
     this.service.delete(item.id).subscribe(() => this.getCategories());
   }
 
+  get passwordMatch () {
+    return !!localStorage.getItem('password_match');
+  }
 }
